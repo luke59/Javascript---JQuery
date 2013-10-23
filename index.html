@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+			$(".scroll").click(function(event){
+				//prevent the default action for the click event
+				event.preventDefault();
+				
+				//toma la url completa ->  mysitecom/index.htm#home
+				var full_url = this.href;
+				
+				//divide la url por el simbolo # y toma el nombre del target -> "home" en mysitecom/index.htm#home
+				var parts = full_url.split("#");
+				var trgt = parts[1];
+				
+				var target_offset = $("#"+trgt).offset();
+				var target_top = target_offset.top;
+				
+
+				$('html, body').animate({scrollTop:target_top}, 400);
+			});
+	});
+</script>
+<title>Untitled Document</title>
+<style type="text/css">
+	html, body{ margin:0; }
+	#relleno{ width:100%; height:40px; }
+	#menu{ position:fixed;  width:100%; height:40px; background:#F00; margin:0; padding:0; padding-top:1px; }
+	#menu ul{  width:1024px; height:50px; margin:0 auto; }
+	#menu ul li{ float:left; display:block; list-style:none;  }
+	#menu ul li a{ padding:15px 40px; text-decoration:none; color:#000;  }
+	#menu ul li a:hover{ background:#333; color:#FFF; }	
+	.container{ width:100%; height:500px; border-top:1px solid red; }
+</style>
+</head>
+
+<body>
+	<div id="menu">
+    	<ul>
+        	<li><a class="scroll" href="#uno">Uno</a></li>
+        	<li><a class="scroll" href="#dos">Dos</a></li>
+        	<li><a class="scroll" href="#tres">Tres</a></li>
+        	<li><a class="scroll" href="#cuatro">Cuatro</a></li>
+        	<li><a class="scroll" href="#cinco">Cinco</a></li>
+        </ul>
+    </div>
+
+        <dic id="relleno"></div>
+        <div class="container"><a id="uno"></a>
+            <p>Uno</p>
+        </div>
+        <div class="container"><a id="dos"></a>
+            <p>Dos</p>
+        </div>
+        <div class="container"><a id="tres"></a>
+            <p>Tres</p>
+        </div>
+        <div class="container"><a id="cuatro"></a>
+            <p>Cuatro</p>
+        </div>
+        <div class="container"><a id="cinco"></a>
+            <p>Cinco</p>
+        </div>
+        <div class="container">
+        </div>
+
+</body>
+</html>
